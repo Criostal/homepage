@@ -1,0 +1,23 @@
+# Ignore everything by default
+/*
+
+# Keep git metadata and basic repo files so repo remains usable
+!.gitignore
+!README.md
+!package.json
+!package-lock.json
+!yarn.lock
+
+# Only track source and public assets
+!/src/
+!/public/
+
+# Ignore common generated folders and environment files
+node_modules/
+build/
+dist/
+.cache/
+.vscode/
+.env
+npm-debug.log
+.DS_Store

@@ -1,0 +1,21 @@
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Abstand zwischen den Buttons */
+    align-items: center; /* Zentriert die Buttons horizontal */
+}
+
+button {
+    width: 200px; /* Feste Breite für die Buttons */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Abgerundete Ecken */
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e0e0e0; /* Hintergrundfarbe beim Hover */
+}

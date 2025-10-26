@@ -1,0 +1,94 @@
+.linkmanager-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+}
+
+.linkmanager-container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.linkmanager-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.linkmanager-form input[type="text"],
+.linkmanager-form input[type="url"] {
+    padding: 8px 12px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 40%;
+    min-width: 120px;
+}
+
+.linkmanager-form button {
+    padding: 8px 18px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.linkmanager-form button:hover {
+    background: #388e3c;
+}
+
+.linkmanager-error {
+    color: #c00;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.linkmanager-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.linkmanager-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.linkmanager-list-item a {
+    color: #1976d2;
+    text-decoration: none;
+    font-size: 17px;
+    word-break: break-all;
+}
+
+.linkmanager-list-item a:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 14px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 16px;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background: #b71c1c;
+}
