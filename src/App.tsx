@@ -23,7 +23,6 @@ const App: React.FC = () => {
                             <li><Link to="/" onClick={() => setMenuOpen(false)}>home</Link></li>
                             <li><Link to="/cameras" onClick={() => setMenuOpen(false)}>cameras</Link></li>
                             <li><Link to="/Weblinks" onClick={() => setMenuOpen(false)}>weblinks</Link></li>
-                            <li><Link to="/edit" onClick={() => setMenuOpen(false)}>edit</Link></li>
                             <li><Link to="/linkmanager" onClick={() => setMenuOpen(false)}>linkmanager</Link></li>
                             <li><Link to="/horses" onClick={() => setMenuOpen(false)}>horses</Link></li>
                             <li><Link to="/keyboard" onClick={() => setMenuOpen(false)}>keyboards</Link></li>

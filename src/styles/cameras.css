@@ -1,21 +1,21 @@
-.button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Abstand zwischen den Buttons */
-    align-items: flex-start;
+.cam-button-container {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start; /* keep buttons left-aligned */
+  align-items: left;
 }
 
 button {
-    width: 200px; /* Feste Breite für die Buttons */
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 5px; /* Abgerundete Ecken */
-    background-color: #f4f4f4;
-    transition: background-color 0.3s ease;
+  width: 200px; /* Feste Breite für die Buttons */
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px; /* Abgerundete Ecken */
+  background: transparent;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #e0e0e0; /* Hintergrundfarbe beim Hover */
+  background-color: #e0e0e0; /* Hintergrundfarbe beim Hover */
 }

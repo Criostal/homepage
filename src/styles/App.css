@@ -84,22 +84,21 @@ td.editable:hover {
 
 .content {
     flex: 1;
-    padding: 20px;
+    padding: 10px;
 }
 
 .top-menu {
     width: 100%;
     /* glossy gradient + subtle shadow */
-    background: linear-gradient(180deg, #2ecc71 0%, #27ae60 50%, #199a56 100%);
+    background: green;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     position: relative;
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.15);
-    box-shadow: 0 6px 14px rgba(39,174,96,0.18), inset 0 1px 0 rgba(255,255,255,0.18);
+    box-shadow: 0 6px 12px rgba(39,174,96,0.18), inset 0 1px 0 rgba(255,255,255,0.18);
     overflow: hidden;
-    padding: 20px;
 }
 
 /* glossy highlight */
@@ -152,18 +151,3 @@ td.editable:hover {
     color: #fff;
 }
 
-/* Responsive: Menü verstecken und Hamburger zeigen */
-@media (max-width: 700px) {
-    .top-menu nav ul {
-        flex-direction: column;
-        background: #333;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        display: none;
-    }
-    .top-menu nav.open ul {
-        display: flex;
-    }
-}

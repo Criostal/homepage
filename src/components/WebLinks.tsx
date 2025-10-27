@@ -25,25 +25,24 @@ const weblinks: Weblink[] = [
     { label: "GitHub", url: "https://www.github.com", category: "Entwicklung" },
     { label: "React", url: "https://www.reactjs.org", category: "Entwicklung" },
     { label: "Stack Overflow", url: "https://stackoverflow.com", category: "Entwicklung" },
-    { label: "Wikipedia", url: "https://www.wikipedia.org", category: "Wissen" },
     { label: "Jira sprint medi", url: "https://servicedesk.nexus-ag.de/secure/RapidBoard.jspa?rapidView=1843&projectKey=PNXCMC&quickFilter=2507#", category: "Sprint" },
     { label: "Mitarbeiterportal", url: "https://ess.nexus-ag.de/", category: "HR" },
     { label: "Tempo", url: "https://servicedesk.nexus-ag.de/secure/Tempo.jspa#/my-work/week?type=LIST", category: "Sprint" },
     { label: "Hotfix db", url:"http://191.100.2.124/hotfix/", category: "Datenbank" },
     { label: "Changeset - Hotfix", url: "https://ds-vm-csovcs01.nexus.int/NxCollection/Medication/_git/DatabaseMigrationTool?path=%2FChangesetId-Hotfix.xml&version=GBmaster", category: "Datenbank"},
-    { label:"Ticket IT" , url:"https://servicedesk.nexus-ag.de/servicedesk/customer/portal/143", category: "Support" },
-    { label:"Ticket IT query" , url:"https://servicedesk.nexus-ag.de/projects/NXITINT/queues/custom/1705", category: "Support" },
-    { label:"Amts dashboard local", url:"http://cch-ds-lap01.nexus.int:82/", category: "CaveCheck" },
-    { label:"Amts dashboard", url:"https://ds-vm-mbuild03.nexus.int:442/", category: "Api" },
-    { label:"Amts check (NL)", url: "http://ds-vm-mdb01.nexus.int:84/", category: "Api" },
-    { label:"swagger eps24.2 mbuild03", url:"https://ds-vm-mbuild03.nexus.int/medication/eps24.2/swagger/index.html", category: "Api" },
-    { label:"swagger eps 133", url: "http://191.100.43.133/NexusKis/medication/eps/swagger/index.html", category: "Api" },
-    { label:"Dosing Server", url:"http://ds-vm-all-do-02/", category: "Api" },
-    { label:"Id Server", url:"https://ds-vm-mtest-idb.nexus.int/webcomponents/webcomponents.html", category: "Api" },
-    { label:"eps 24.2", url:"file://vs-file01/Entwicklung_MediChart/Test/MEDI_CHART_24_1/Medication/24.1.7.1-RC/api-doc/articles/intro.html", category: "Api" },
-    { label:"Confluence medi", url:"https://confluence.nexus-ag.de/display/MED/CMC+Team+Space", category: "Dokumentation" },
-    { label:"Medication Tec Doc", url:"https://confluence.nexus-ag.de/pages/viewpage.action?pageId=180908220", category: "Dokumentation" },
-    { label:"Oracle 19c dev", url:"https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html", category: "Datenbank" },
+    { label: "Ticket IT" , url:"https://servicedesk.nexus-ag.de/servicedesk/customer/portal/143", category: "Support" },
+    { label: "Ticket IT query" , url:"https://servicedesk.nexus-ag.de/projects/NXITINT/queues/custom/1705", category: "Support" },
+    { label: "Amts dashboard local", url:"http://cch-ds-lap01.nexus.int:82/", category: "Amts" },
+    { label: "Amts dashboard", url:"https://ds-vm-mbuild03.nexus.int:442/", category: "Amts" },
+    { label: "Amts check (NL)", url: "http://ds-vm-mdb01.nexus.int:84/", category: "Amts" },
+    { label: "swagger eps24.2 mbuild03", url:"https://ds-vm-mbuild03.nexus.int/medication/eps24.2/swagger/index.html", category: "Api" },
+    { label: "swagger eps 133", url: "http://191.100.43.133/NexusKis/medication/eps/swagger/index.html", category: "Api" },
+    { label: "Dosing Server", url:"http://ds-vm-all-do-02/", category: "Api" },
+    { label: "Id Server", url:"https://ds-vm-mtest-idb.nexus.int/webcomponents/webcomponents.html", category: "Api" },
+    { label: "eps 24.2", url:"file://vs-file01/Entwicklung_MediChart/Test/MEDI_CHART_24_1/Medication/24.1.7.1-RC/api-doc/articles/intro.html", category: "Api" },
+    { label: "Confluence medi", url:"https://confluence.nexus-ag.de/display/MED/CMC+Team+Space", category: "Dokumentation" },
+    { label: "Medication Tec Doc", url:"https://confluence.nexus-ag.de/pages/viewpage.action?pageId=180908220", category: "Dokumentation" },
+    { label: "Oracle 19c dev", url:"https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html", category: "Datenbank" },
     { label: "Sprint", url: "https://ds-vm-csovcs01.nexus.int/NxCollection/Medication/_sprints/taskboard/Medication%20Team/Medication/Sprint", category: "Sprint" },
     { label: "Pull requests", url: "https://ds-vm-csovcs01.nexus.int/NxCollection/Medication/_apps/hub/ryanstedman.tfs-pullrequest-dashboard.tfs-pullrequest-dashboard", category: "Sprint" },
     { label: "Amts - Doku", url: "https://confluence.nexus-ag.de/x/iiYeBQ", category: "Dokumentation" },
@@ -52,30 +51,31 @@ const weblinks: Weblink[] = [
 
 // Farben pro Kategorie
 const categoryColors: Record<string, string> = {
-    "Entwicklung": "#1976d2",
+    "Entwicklung": "#388e3c",
     "Wissen": "#388e3c",
     "Projektmanagement": "#fbc02d",
     "HR": "#8e24aa",
     "Zeiterfassung": "#00838f",
     "Datenbank": "#d84315",
     "Support": "#455a64",
-    "Amts": "#5d4037",
-    "Api": "#0288d1",
-    "Dokumentation": "#c2185b"
+    "Amts": "#c2185b",
+    "Api": "#c2185b",
+    "Dokumentation": "#c2185b",
+    "Sprint": "#c2185b",
 };
 
 // Helle Farbverläufe für die Kategorie-Hintergründe
 const categoryBackgrounds: Record<string, string> = {
-    "Entwicklung": "linear-gradient(135deg, #e3f0ff 60%, #f5fafd 100%)",
+    "Entwicklung": "linear-gradient(135deg, #e0f3fa 60%, #f6fcff 100%)",
     "Wissen": "linear-gradient(135deg, #e6f5ea 60%, #f8fcf9 100%)",
     "Projektmanagement": "linear-gradient(135deg, #fff9e1 60%, #fffef7 100%)",
     "HR": "linear-gradient(135deg, #f3e6fa 60%, #faf6fd 100%)",
     "Zeiterfassung": "linear-gradient(135deg, #e0f7fa 60%, #f6feff 100%)",
-    "Datenbank": "linear-gradient(135deg, #ffe7e0 60%, #fff8f5 100%)",
-    "Support": "linear-gradient(135deg, #e3eaf0 60%, #f7fafc 100%)",
-    "Amts": "linear-gradient(135deg, #ede6e3 60%, #faf7f5 100%)",
+    "Datenbank": "linear-gradient(135deg, #e0f3fa 60%, #f6fcff 100%)",
+    "Support": "linear-gradient(135deg, #f3e6fa 60%, #faf6fd 100%)",
+    "Amts": "linear-gradient(135deg, #fff3e0 60%, #fffbea 100%)",
     "Api": "linear-gradient(135deg, #e0f3fa 60%, #f6fcff 100%)",
-    "Dokumentation": "linear-gradient(135deg, #fae6ef 60%, #fdf6fa 100%)",
+    "Dokumentation": "linear-gradient(135deg, #e0f3fa 60%, #f6fcff 100%)",
     "Sprint": "linear-gradient(135deg, #fff3e0 60%, #fffbea 100%)"
 };
 
@@ -106,14 +106,14 @@ const Weblinks: React.FC = () => {
                     <div
                         key={category}
                         style={{
-                            marginBottom: 32,
+                            marginBottom: 16,
                             display: "flex",
                             alignItems: "flex-start",
-                            gap: 24,
+                            gap: 14,
                             borderRadius: 18,
                             boxShadow: "0 4px 24px 0 rgba(0,0,0,0.07)",
                             background: categoryBackgrounds[category] || "#f5f5f5",
-                            padding: "24px 18px"
+                            padding: "12px 9px"
                         }}
                     >
                         <h3
@@ -129,7 +129,7 @@ const Weblinks: React.FC = () => {
                             }}
                         >
                             {category}
-                            <span style={{ fontSize: 24 }}>
+                            <span style={{ fontSize: 18 }}>
                                 {categoryIcons[category] || "🔗"}
                             </span>
                         </h3>
@@ -166,7 +166,7 @@ const Weblinks: React.FC = () => {
                                     </a>
                                 ))}
                             </div>
-                            <div className="button-container" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                            <div className="button-container" style={{ display: "inline", flexDirection: "column", gap: 8 }}>
                                 {col2.map(link => (
                                     <a
                                         key={link.url}
