@@ -61,7 +61,7 @@ const categoryColors: Record<string, string> = {
     "Amts": "#c2185b",
     "Api": "#c2185b",
     "Dokumentation": "#c2185b",
-    "Sprint": "#c2185b",
+    "Sprint": "#00BCD4",
 };
 
 // Helle Farbverläufe für die Kategorie-Hintergründe
@@ -69,14 +69,14 @@ const categoryBackgrounds: Record<string, string> = {
     "Entwicklung": "linear-gradient(135deg, #e0f3fa 60%, #f6fcff 100%)",
     "Wissen": "linear-gradient(135deg, #e6f5ea 60%, #f8fcf9 100%)",
     "Projektmanagement": "linear-gradient(135deg, #fff9e1 60%, #fffef7 100%)",
-    "HR": "linear-gradient(135deg, #f3e6fa 60%, #faf6fd 100%)",
+    "HR": "linear-gradient(135deg, #fde2beff 60%, #FF8F00 100%)",
     "Zeiterfassung": "linear-gradient(135deg, #e0f7fa 60%, #f6feff 100%)",
     "Datenbank": "linear-gradient(135deg, #e0f3fa 60%, #f6fcff 100%)",
-    "Support": "linear-gradient(135deg, #f3e6fa 60%, #faf6fd 100%)",
-    "Amts": "linear-gradient(135deg, #fff3e0 60%, #fffbea 100%)",
+    "Support": "linear-gradient(135deg, #fde2beff 60%, #FF8F00 100%)",
+    "Amts": "linear-gradient(135deg, #caf9ff50 60%, #00BCD4 100%)",
     "Api": "linear-gradient(135deg, #e0f3fa 60%, #f6fcff 100%)",
     "Dokumentation": "linear-gradient(135deg, #e0f3fa 60%, #f6fcff 100%)",
-    "Sprint": "linear-gradient(135deg, #fff3e0 60%, #fffbea 100%)"
+    "Sprint": "linear-gradient(135deg, #caf9ff50 60%, #00BCD4 100%)"
 };
 
 const groupedLinks = weblinks.reduce<Record<string, Weblink[]>>((acc, link) => {

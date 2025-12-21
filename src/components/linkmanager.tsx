@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/linkmanager.css';
+import { getUrl } from './links';
 
 type Link = {
     id: number;
     title: string;
     url: string;
 };
-
-const API_URL = 'http://mfoijwtgcugfpx87.myfritz.net:5000/api/links';
 
 const LinkManager: React.FC = () => {
     const [links, setLinks] = useState<Link[]>([]);
@@ -21,7 +20,7 @@ const LinkManager: React.FC = () => {
         setLoading(true);
         setError(null);
         try {
-            const res = await fetch(API_URL);
+            const res = await fetch(getUrl());
             if (!res.ok) throw new Error('Fehler beim Laden der Links');
             const data = await res.json();
             if (!Array.isArray(data.data)) {
@@ -43,7 +42,7 @@ const LinkManager: React.FC = () => {
         e.preventDefault();
         setError(null);
         try {
-            const res = await fetch(API_URL, {
+            const res = await fetch(getUrl(), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ title, url }),
@@ -61,7 +60,7 @@ const LinkManager: React.FC = () => {
     const deleteLink = async (id: number) => {
         setError(null);
         try {
-            const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+            const res = await fetch(`${getUrl()}/${id}`, { method: 'DELETE' });
             if (!res.ok) throw new Error('Fehler beim Löschen');
             fetchLinks();
         } catch (err: any) {

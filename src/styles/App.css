@@ -90,15 +90,15 @@ td.editable:hover {
 .top-menu {
     width: 100%;
     /* glossy gradient + subtle shadow */
-    background: green;
+    background: #0026ff48;
     padding: 0;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     position: relative;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
     box-shadow: 0 6px 12px rgba(39,174,96,0.18), inset 0 1px 0 rgba(255,255,255,0.18);
     overflow: hidden;
+    border-radius: var(--md-radius); /* added border radius */
 }
 
 /* glossy highlight */
@@ -113,6 +113,7 @@ td.editable:hover {
     transform: rotate(-12deg);
     pointer-events: none;
     opacity: 0.9;
+    border: "1.5px solid rgba(30, 144, 255, 0.18)",
 }
 
 /* subtle bottom shadow for depth */
@@ -140,7 +141,7 @@ td.editable:hover {
 
 .top-menu nav a {
     display: block;
-    color: #fff;
+    color: #201700;
     padding: 16px 24px;
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
@@ -149,5 +150,21 @@ td.editable:hover {
 .top-menu nav a:hover {
     background: rgba(255,255,255,0.08);
     color: #fff;
+}
+
+:root{
+  --md-primary: #ffb405; /* amber 600 */
+  --md-primary-variant: #FF8F00; /* amber 700 */
+  --md-secondary: #00BCD4; /* turquoise / cyan */
+  --md-background: #e0f7fa; /* very light turquoise */
+  --md-surface: #ffffff;
+  --md-error: #b00020;
+  --md-on-primary: #000000; /* dark text on amber */
+  --md-on-surface: #222;
+  --md-shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
+  --md-shadow-2: 0 4px 6px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  --md-radius: 8px;
+  --md-spacing: 16px;
+  font-size: 16px;
 }
 
