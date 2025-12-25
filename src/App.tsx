@@ -6,6 +6,7 @@ import NxLinks from './components/WebLinks';
 import LinkManager from './components/linkmanager';
 import Horses from './components/horses';
 import Keyboard from './components/keyboard';
+import LinksSiteAsp from './components/asplinks';
 import './styles/App.css';
 
 const App: React.FC = () => {
@@ -26,6 +27,7 @@ const App: React.FC = () => {
                             <li><Link to="/linkmanager" onClick={() => setMenuOpen(false)}>linkmanager</Link></li>
                             <li><Link to="/horses" onClick={() => setMenuOpen(false)}>horses</Link></li>
                             <li><Link to="/keyboard" onClick={() => setMenuOpen(false)}>keyboards</Link></li>
+                            <li><Link to="/asplinks" onClick={() => setMenuOpen(false)}>asp links</Link></li>
                         </ul>
                     </nav>
                 </header>
@@ -39,6 +41,7 @@ const App: React.FC = () => {
                             <Route path="/linkmanager" element={<LinkManager />} />
                             <Route path="/horses" element={<Horses />} />
                             <Route path="/keyboard" element={<Keyboard />} />
+                            <Route path="/asplinks" element={<LinksSiteAsp />} />
                             <Route path="*" element={<h2>404 - Seite nicht gefunden</h2>} />
                         </Routes>
                     </main>
