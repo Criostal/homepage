@@ -6,6 +6,7 @@ interface AspLink {
     url: string;
     title: string;
     description: string;
+    createdAt: Date;
 }
 
 const LinksSiteAsp: React.FC = () => {
@@ -17,11 +18,11 @@ const LinksSiteAsp: React.FC = () => {
             const response = await fetch(GetAspUrl());
 
             if(!response.ok) {
-                throw new Error('Network response was not ok ${response.status} ' );
+                throw new Error(`Network response was not ok ${response.status}`);
             }
 
             const data = await response.json();
-            return data.links;
+            return data;
         
         } catch  (error: any) {
             console.error('Error fetching ASP links:', error);
@@ -35,7 +36,7 @@ const LinksSiteAsp: React.FC = () => {
     
     useEffect(() => {
         fetchAspLinks()
-            .then(fetchedLinks => setLinks(fetchedLinks))
+            .then(fetchedLinks => setLinks(Array.isArray(fetchedLinks) ? fetchedLinks : []))
             .catch(error => 
                 {console.error('Error fetching ASP links:', error)
                     setError(error.message);
@@ -60,4 +61,4 @@ const LinksSiteAsp: React.FC = () => {
     );
 }
 
-export default LinksSiteAsp;
+export default LinksSiteAsp; 
