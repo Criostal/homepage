@@ -1,0 +1,92 @@
+
+/* Alternating responsive grid for ASP links — glossy green theme */
+.link-grid .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.grid-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  /* glossy green gradient */
+  background: linear-gradient(180deg, #7ee087 0%, #2fa84f 60%);
+  color: #ffffff;
+  border: 1px solid rgba(20, 120, 60, 0.18);
+  box-shadow: 0 8px 24px rgba(47,168,79,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.grid-item:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(47,168,79,0.18); }
+
+.grid-item::after {
+  /* subtle glossy sheen */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.06));
+  pointer-events: none;
+}
+
+.grid-item .item-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  z-index: 1;
+}
+
+.grid-item .text { flex: 1 1 auto; }
+
+.grid-item .text h3 { margin: 0 0 6px 0; font-size: 1.05rem; }
+.grid-item .text h3 a { color: #05260f; font-weight: 600; text-decoration: none; }
+.grid-item .desc { color: rgba(3,22,10,0.8); margin-top: 6px; }
+
+.grid-item .actions { flex: 0 0 120px; display:flex; justify-content:center; }
+
+.open-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #0f5f2a, #0a4b20);
+  color: #ffffffc4;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.input-box {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  /* glossy green gradient */
+  background: linear-gradient(180deg, #8d7ee0 0%, #e2dbf7 60%);
+  color: #ffffffc4;
+  border: 1px solid rgba(20, 120, 60, 0.18);
+  box-shadow: 0 8px 24px rgba(47,168,79,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  padding: 18px;
+  margin-bottom: 20px;
+
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #0f5f2a, #0a4b20);
+  color: #ffffffc4;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  margin: 10px;
+}
+
+@media (max-width: 480px) {
+  .grid-item .item-content { flex-direction: column; align-items: flex-start; }
+  .grid-item .actions { width: 100%; justify-content: flex-start; margin-top: 10px; }
+}

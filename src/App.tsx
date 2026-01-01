@@ -27,7 +27,7 @@ const App: React.FC = () => {
                             <li><Link to="/linkmanager" onClick={() => setMenuOpen(false)}>linkmanager</Link></li>
                             <li><Link to="/horses" onClick={() => setMenuOpen(false)}>horses</Link></li>
                             <li><Link to="/keyboard" onClick={() => setMenuOpen(false)}>keyboards</Link></li>
-                            <li><Link to="/asplinks" onClick={() => setMenuOpen(false)}>asp links</Link></li>
+                            <li><Link to="/asplinks" onClick={() => setMenuOpen(false)}>bookmarks</Link></li>
                         </ul>
                     </nav>
                 </header>

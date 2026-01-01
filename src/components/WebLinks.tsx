@@ -96,7 +96,6 @@ const Weblinks: React.FC = () => {
 
     return (
         <div>
-            <h3>test</h3>
             {sortedCategories.map(category => {
                 const links = groupedLinks[category];
                 const half = Math.ceil(links.length / 2);

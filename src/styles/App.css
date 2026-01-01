@@ -90,7 +90,7 @@ td.editable:hover {
 .top-menu {
     width: 100%;
     /* glossy gradient + subtle shadow */
-    background: #0026ff48;
+    background: linear-gradient(180deg, #7ee087 0%, #2fa84f 60%);
     padding: 0;
     margin-bottom: 5px;
     position: relative;
