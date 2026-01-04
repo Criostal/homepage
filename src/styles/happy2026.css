@@ -1,0 +1,44 @@
+/* Glitter and festive styles for HappyNewYear2026 page */
+.happy-page { position: relative; overflow: hidden; min-height: 320px; }
+.glitter-container { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.glitter {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  transform-origin: center;
+  box-shadow: 0 0 10px rgba(255,255,255,0.9);
+  filter: hue-rotate(10deg) saturate(120%);
+  animation-name: glitter-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glitter-float {
+  0% { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; transform: translateY(-8px) scale(1) rotate(10deg); }
+  50% { transform: translateY(6px) scale(0.9) rotate(-6deg); opacity: 0.9; }
+  100% { transform: translateY(24px) scale(0.5) rotate(30deg); opacity: 0; }
+}
+
+.happy-content { position: relative; z-index: 2; }
+.happy-title { font-size: 3rem; margin: 0 0 12px; color: #083b1b; text-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.happy-sub { font-size: 1.15rem; color: #083b1b; margin: 0; }
+.happy-btn { padding: 10px 16px; border-radius: 8px; border: none; background: linear-gradient(180deg,#1976d2,#0f4ba0); color: #fff; cursor: pointer; box-shadow: 0 6px 18px rgba(13,71,161,0.18); }
+
+/* extra confetti-like shimmer: layered radial highlights */
+.happy-page::before {
+  content: "";
+  position: absolute;
+  left: -20%;
+  top: -30%;
+  width: 140%;
+  height: 70%;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.28), rgba(255,255,255,0) 30%), radial-gradient(circle at 80% 60%, rgba(255,235,160,0.08), rgba(255,255,255,0) 28%);
+  transform: rotate(-10deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .happy-title { font-size: 2rem; }
+}

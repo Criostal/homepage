@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
+import { Menu } from 'lucide-react';
 import EditableGrid from './components/EditableGrid';
 import CamerasPage from './components/cameras';
 import NxLinks from './components/WebLinks';
@@ -7,7 +19,11 @@ import LinkManager from './components/linkmanager';
 import Horses from './components/horses';
 import Keyboard from './components/keyboard';
 import LinksSiteAsp from './components/asplinks';
+import HappyNewYear2026 from './components/HappyNewYear2026';
+import LinksSiteAdd from './components/addlink';
+
 import './styles/App.css';
+import { ListItem } from '@mui/material';
 
 const App: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,24 +33,65 @@ const App: React.FC = () => {
     return (
         <Router>
             <div className="App">
-                {/* Menüleiste oben */}
-                <header className="top-menu">
-                    <nav className={menuOpen ? 'open' : ''}>
-                        <ul>
-                            <li><Link to="/" onClick={() => setMenuOpen(false)}>home</Link></li>
-                            <li><Link to="/cameras" onClick={() => setMenuOpen(false)}>cameras</Link></li>
-                            <li><Link to="/Weblinks" onClick={() => setMenuOpen(false)}>weblinks</Link></li>
-                            <li><Link to="/linkmanager" onClick={() => setMenuOpen(false)}>linkmanager</Link></li>
-                            <li><Link to="/horses" onClick={() => setMenuOpen(false)}>horses</Link></li>
-                            <li><Link to="/keyboard" onClick={() => setMenuOpen(false)}>keyboards</Link></li>
-                            <li><Link to="/asplinks" onClick={() => setMenuOpen(false)}>bookmarks</Link></li>
-                        </ul>
-                    </nav>
-                </header>
+                {/* Material AppBar */}
+                <AppBar position="static" color="primary">
+                    <Toolbar>
+                        <IconButton
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            onClick={toggleMenu}
+                            disableRipple
+                            sx={{ mr: 2, width: 32, height: 32, borderRadius: '6px', bgcolor: 'transparent', p: 0.5 }}
+                        >
+                            <Menu size={20} />
+                        </IconButton>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            Homepage
+                        </Typography>
+                        <Button color="inherit" component={Link} to="/">Home</Button>
+                        <Button color="inherit" component={Link} to="/asplinks">Links</Button>
+                    </Toolbar>
+                </AppBar>
+
+                <Drawer anchor="left" open={menuOpen} onClose={() => setMenuOpen(false)}>
+                    <Box sx={{ width: 260 }} role="presentation" onClick={() => setMenuOpen(false)} onKeyDown={() => setMenuOpen(false)}>
+                        <List>
+                            <ListItemButton component={Link} to="/Weblinks">
+                                <ListItemText primary="Home" />
+                            </ListItemButton>
+                            <ListItemButton component={Link} to="/cameras">
+                                <ListItemText primary="Cameras" />
+                            </ListItemButton>
+                            <ListItemButton component={Link} to="/Weblinks">
+                                <ListItemText primary="Weblinks" />
+                            </ListItemButton>
+                            <ListItemButton component={Link} to="/linkmanager">
+                                <ListItemText primary="Link Manager" />
+                            </ListItemButton>
+                            <ListItemButton component={Link} to="/horses">
+                                <ListItemText primary="Horses" />
+                            </ListItemButton>
+                            <ListItemButton component={Link} to="/keyboard">
+                                <ListItemText primary="Keyboard" />
+                            </ListItemButton>
+                            <ListItemButton component={Link} to="/asplinks">
+                                <ListItemText primary="Bookmarks" />
+                            </ListItemButton>
+                            <ListItemButton component={Link} to="/happy-2026">
+                                <ListItemText primary="Happy 2026" />
+                            </ListItemButton>
+                            <ListItemButton component={Link} to="/addBookmark">
+                                <ListItemText primary="Add bookmark" />
+                            </ListItemButton>
+                        </List>
+                        <Divider />
+                    </Box>
+                </Drawer>
                 <div className="container">
                     <main className="content">
                         <Routes>
-                            <Route path="/" element={<NxLinks />} />
+                            <Route path="/" element={<HappyNewYear2026 />} />
                             <Route path="/cameras" element={<CamerasPage />} />
                             <Route path="/Weblinks" element={<NxLinks />} />
                             <Route path="/edit" element={<EditableGrid />} />
@@ -42,6 +99,8 @@ const App: React.FC = () => {
                             <Route path="/horses" element={<Horses />} />
                             <Route path="/keyboard" element={<Keyboard />} />
                             <Route path="/asplinks" element={<LinksSiteAsp />} />
+                            <Route path="/happy-2026" element={<HappyNewYear2026 />} />
+                            <Route path="/addBookmark" element={<LinksSiteAdd />} />
                             <Route path="*" element={<h2>404 - Seite nicht gefunden</h2>} />
                         </Routes>
                     </main>
