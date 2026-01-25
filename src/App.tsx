@@ -50,7 +50,7 @@ const App: React.FC = () => {
                             Homepage
                         </Typography>
                         <Button color="inherit" component={Link} to="/">Home</Button>
-                        <Button color="inherit" component={Link} to="/asplinks">Links</Button>
+                        <Button color="inherit" component={Link} to="/Weblinks">Links</Button>
                     </Toolbar>
                 </AppBar>
 
@@ -78,9 +78,6 @@ const App: React.FC = () => {
                             <ListItemButton component={Link} to="/asplinks">
                                 <ListItemText primary="Bookmarks" />
                             </ListItemButton>
-                            <ListItemButton component={Link} to="/happy-2026">
-                                <ListItemText primary="Happy 2026" />
-                            </ListItemButton>
                             <ListItemButton component={Link} to="/addBookmark">
                                 <ListItemText primary="Add bookmark" />
                             </ListItemButton>
@@ -91,7 +88,7 @@ const App: React.FC = () => {
                 <div className="container">
                     <main className="content">
                         <Routes>
-                            <Route path="/" element={<HappyNewYear2026 />} />
+                            <Route path="/" element={<LinksSiteAsp />} />
                             <Route path="/cameras" element={<CamerasPage />} />
                             <Route path="/Weblinks" element={<NxLinks />} />
                             <Route path="/edit" element={<EditableGrid />} />
@@ -99,7 +96,6 @@ const App: React.FC = () => {
                             <Route path="/horses" element={<Horses />} />
                             <Route path="/keyboard" element={<Keyboard />} />
                             <Route path="/asplinks" element={<LinksSiteAsp />} />
-                            <Route path="/happy-2026" element={<HappyNewYear2026 />} />
                             <Route path="/addBookmark" element={<LinksSiteAdd />} />
                             <Route path="*" element={<h2>404 - Seite nicht gefunden</h2>} />
                         </Routes>
