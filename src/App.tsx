@@ -21,6 +21,7 @@ import Keyboard from './components/keyboard';
 import LinksSiteAsp from './components/asplinks';
 import HappyNewYear2026 from './components/HappyNewYear2026';
 import LinksSiteAdd from './components/addlink';
+import Toast from './components/Toast';
 
 import './styles/App.css';
 import { ListItem } from '@mui/material';
@@ -98,6 +99,7 @@ const App: React.FC = () => {
                             <Route path="/asplinks" element={<LinksSiteAsp />} />
                             <Route path="/addBookmark" element={<LinksSiteAdd />} />
                             <Route path="*" element={<h2>404 - Seite nicht gefunden</h2>} />
+                            
                         </Routes>
                     </main>
                 </div>
