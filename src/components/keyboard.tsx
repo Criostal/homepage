@@ -17,9 +17,6 @@ const Keyboard: React.FC = () => {
             minHeight: 200
         }}>
             <h2>Keyboard</h2>
-            <p>{require(`../assets/images/${imagesJson[current].filename}`)}</p>
-            {/* <img src = {require(`../assets/images/${imagesJson[current].filename}`)}/> */}
-            
             <p>
                 Die Tastatur ist eines der wichtigsten Eingabegeräte für Computer. Sie ermöglicht es, Buchstaben, Zahlen und Sonderzeichen einzugeben und verschiedene Befehle auszuführen. Es gibt viele verschiedene Tastatur-Layouts, wobei das QWERTZ-Layout im deutschsprachigen Raum am weitesten verbreitet ist. Moderne Tastaturen unterscheiden sich in Bauform, Tastenanzahl und Zusatzfunktionen. Mechanische Tastaturen sind besonders bei Vielschreibern und Gamern beliebt, während flache Chiclet-Tastaturen oft bei Laptops zum Einsatz kommen. Neben kabelgebundenen Varianten gibt es auch viele kabellose Tastaturen, die per Bluetooth oder Funk verbunden werden. Die Entwicklung der Tastatur ist eng mit der Geschichte der Schreibmaschine verbunden, aus der sie ursprünglich hervorging.
             </p>

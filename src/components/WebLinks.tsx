@@ -25,6 +25,10 @@ const weblinks: Weblink[] = [
     { label: "GitHub", url: "https://www.github.com", category: "Entwicklung" },
     { label: "React", url: "https://www.reactjs.org", category: "Entwicklung" },
     { label: "Stack Overflow", url: "https://stackoverflow.com", category: "Entwicklung" },
+    { label: "Guid generator", url: "https://guidgenerator.com/", category: "Entwicklung" },
+    { label: "Chmed16ax", url: "https://github.com/ig-emediplan/specification/tree/main/chmed16a#patientid", category: "Entwicklung" },
+    { label: "Guid generator", url: "https://guidgenerator.com/", category: "Entwicklung" },
+    { label: "base64 decoder", url: "https://base64.guru/converter/decode/file", category: "Entwicklung" },
     { label: "Jira sprint medi", url: "https://servicedesk.nexus-ag.de/secure/RapidBoard.jspa?rapidView=1843&projectKey=PNXCMC&quickFilter=2507#", category: "Sprint" },
     { label: "Mitarbeiterportal", url: "https://ess.nexus-ag.de/", category: "HR" },
     { label: "Tempo", url: "https://servicedesk.nexus-ag.de/secure/Tempo.jspa#/my-work/week?type=LIST", category: "Sprint" },
@@ -46,6 +50,12 @@ const weblinks: Weblink[] = [
     { label: "Sprint", url: "https://ds-vm-csovcs01.nexus.int/NxCollection/Medication/_sprints/taskboard/Medication%20Team/Medication/Sprint", category: "Sprint" },
     { label: "Pull requests", url: "https://ds-vm-csovcs01.nexus.int/NxCollection/Medication/_apps/hub/ryanstedman.tfs-pullrequest-dashboard.tfs-pullrequest-dashboard", category: "Sprint" },
     { label: "Amts - Doku", url: "https://confluence.nexus-ag.de/x/iiYeBQ", category: "Dokumentation" },
+    { label: "Confluence NG Framework", url: "https://confluence.nexus-ag.de/spaces/NGDEV/pages/13304405/NG+Framework+Entwicklung", category: "Dokumentation" },
+    { label: "Confluence His", url: "https://confluence.nexus-ag.de/spaces/NXCSODOK/pages/8618054/NEXUS+HIS", category: "Dokumentation" },
+    { label: "Confluence Container Startparameter", url: "https://confluence.nexus-ag.de/spaces/MED/pages/24225747/Container+Startparameter", category: "Dokumentation" },
+    { label: "Confluence Amts", url: "https://confluence.nexus-ag.de/spaces/MED/pages/85862026/Safety+Checks+AMTS", category: "Dokumentation" },
+    { label: "Confluence Cmc", url: "https://confluence.nexus-ag.de/spaces/MED/pages/13304575/CMC+Team+Space", category: "Dokumentation" },
+    { label: "Grafana", url:"http://ds-vm-ngtrace01:3000/", category: "Dokumentation"},
     // Weitere Links...
 ];
 

@@ -99,7 +99,9 @@ const App: React.FC = () => {
                             <Route path="/asplinks" element={<LinksSiteAsp />} />
                             <Route path="/addBookmark" element={<LinksSiteAdd />} />
                             <Route path="*" element={<h2>404 - Seite nicht gefunden</h2>} />
-                            
+                            <Route path="/toast" element={<Toast message="This is a toast notification! 403 (forbidden)" onClose={
+() => console.log('Toast closed')
+                            }/>} />
                         </Routes>
                     </main>
                 </div>
