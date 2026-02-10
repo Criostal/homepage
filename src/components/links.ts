@@ -5,6 +5,8 @@ const API2_URL = 'http://mfoijwtgcugfpx87.myfritz.net:5010/weblinks/list';
 
 const DEBUG_API_URL = 'http://localhost:5235/weblinks/list';
 
+export const API_HEALTHCHECK = 'http://mfoijwtgcugfpx87.myfritz.net:5010/health';
+
 export function getUrl() : string {
     return API_URL;
 }

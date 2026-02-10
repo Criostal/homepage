@@ -8,10 +8,9 @@
 
 .grid-item {
   position: relative;
-  border-radius: 15px;
+  border-radius: 5px;
   overflow: hidden;
-  /* glossy green gradient */
-  background: linear-gradient(180deg, #7ee087 0%, #2fa84f 60%);
+  background: rgb(97, 140, 77);
   color: #ffffff;
   border: 1px solid rgba(20, 120, 60, 0.18);
   box-shadow: 0 8px 24px rgba(47,168,79,0.12), inset 0 1px 0 rgba(255,255,255,0.18);
@@ -28,7 +27,6 @@
   right: 0;
   top: 0;
   height: 45%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.06));
   pointer-events: none;
 }
 
@@ -45,14 +43,18 @@
 
 .grid-item .text h3 { margin: 0 0 6px 0; font-size: 1.05rem; }
 .grid-item .text h3 a { color: #05260f; font-weight: 600; text-decoration: none; }
-.grid-item .desc { color: rgba(3,22,10,0.8); margin-top: 6px; }
+.grid-item .desc { color: rgba(3,22,10,0.8); margin-top: 6px; font-size: 0.85rem; }
+
+/* left-side favicon container, icon centered vertically */
+.grid-item .favicon-container { flex: 0 0 44px; display: flex; align-items: center; justify-content: center; }
+.grid-item .favicon { width: 24px; height: 24px; border-radius: 4px; background: transparent; }
 
 .grid-item .actions { flex: 0 0 120px; display:flex; justify-content:center; }
 
 .open-btn {
   display: inline-block;
   padding: 8px 12px;
-  background: linear-gradient(180deg, #0f5f2a, #0a4b20);
+  background: linear-gradient(180deg, #9f9fa0, #9c9ca2);
   color: #ffffffc4;
   border-radius: 6px;
   text-decoration: none;

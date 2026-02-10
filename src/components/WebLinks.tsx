@@ -56,6 +56,8 @@ const weblinks: Weblink[] = [
     { label: "Confluence Amts", url: "https://confluence.nexus-ag.de/spaces/MED/pages/85862026/Safety+Checks+AMTS", category: "Dokumentation" },
     { label: "Confluence Cmc", url: "https://confluence.nexus-ag.de/spaces/MED/pages/13304575/CMC+Team+Space", category: "Dokumentation" },
     { label: "Grafana", url:"http://ds-vm-ngtrace01:3000/", category: "Dokumentation"},
+    { label: "Postman", url:"https://www.postman.com/", category: "Entwicklung" },
+    { label: "Confluence Machines", url: "https://confluence.nexus-ag.de/x/xgGjAg", category: "Dokumentation" },
     // Weitere Links...
 ];
 

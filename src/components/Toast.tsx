@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { AlertTriangle } from 'lucide-react';
 
 type ToastProps = {
   message: string | null;
@@ -16,19 +17,31 @@ const Toast: React.FC<ToastProps> = ({ message, duration = 4000, onClose }) => {
   if (!message) return null;
 
   return (
-    <div style={{
-      position: 'fixed',
-      left: '50%',
-      bottom: '24px',
-      transform: 'translateX(-50%)',
-      background: 'rgba(0,0,0,0.8)',
-      color: 'white',
-      padding: '10px 14px',
-      borderRadius: 8,
-      zIndex: 10000,
-      boxShadow: '0 6px 18px rgba(0,0,0,0.2)'
-    }}>
-      {message}
+    <div
+      role="status"
+      aria-live="polite"
+      style={{
+        position: 'fixed',
+        left: '50%',
+        bottom: '24px',
+        transform: 'translateX(-50%)',
+        background: '#ffb74d',
+        color: '#201700',
+        padding: '12px 18px',
+        borderRadius: 10,
+        zIndex: 10000,
+        boxShadow: '0 6px 18px rgba(0,0,0,0.2)',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+        minWidth: 320,
+        maxWidth: '80%',
+        fontSize: '1rem',
+        fontWeight: 600
+      }}
+    >
+      <AlertTriangle size={20} color="#201700" />
+      <span style={{ lineHeight: 1.1 }}>{message}</span>
     </div>
   );
 };

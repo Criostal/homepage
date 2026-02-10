@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Toast from './Toast';
 import { GetAspUrl } from './links';
 import '../styles/asplinks.css';
-import { BugOff } from 'lucide-react';
+import OpenLinkButton from './OpenLinkButton';
 import { AspLink } from './AspLink';
 
 const LinksSiteAsp: React.FC = () => {
@@ -58,7 +58,15 @@ const LinksSiteAsp: React.FC = () => {
         return `hsl(${hue}, 70%, 92%)`;
     }
 
-
+    function getFaviconUrl(url: string) {
+        try {
+            const u = new URL(url);
+            // Use Google's favicon service (fallback to hostname)
+            return `https://www.google.com/s2/favicons?sz=64&domain=${u.hostname}`;
+        } catch (e) {
+            return undefined;
+        }
+    }
 
     if(error) {
         return <div>Error: {error}</div>;
@@ -72,9 +80,16 @@ const LinksSiteAsp: React.FC = () => {
                     <p>Keine Links gefunden.</p>
                 ) : (
                     <div className="grid">
-                        {asplinks.map((link, idx) => (
+                        {asplinks.map((link, idx) => {
+                            const faviconUrl = getFaviconUrl(link.url);
+                            return (
                             <div className="grid-item" key={link.id}>
                                 <div className="item-content">
+                                    <div className="favicon-container">
+                                        {faviconUrl && (
+                                            <img src={faviconUrl} alt="favicon" className="favicon" />
+                                        )}
+                                    </div>
                                     <div className="text">
                                         <h3>
                                             <a href={link.url} target="_blank" rel="noopener noreferrer">{link.title}</a>
@@ -82,11 +97,12 @@ const LinksSiteAsp: React.FC = () => {
                                         {link.description && <p className="desc">{link.description}</p>}
                                     </div>
                                     <div className="actions">
-                                        <a className="open-btn" href={link.url} target="_blank" rel="noopener noreferrer">Öffnen</a>
+                                        <OpenLinkButton url={link.url} />
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 )}
             </div>

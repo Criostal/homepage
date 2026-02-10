@@ -113,7 +113,7 @@ td.editable:hover {
     transform: rotate(-12deg);
     pointer-events: none;
     opacity: 0.9;
-    border: "1.5px solid rgba(30, 144, 255, 0.18)",
+    border: "1.5px solid rgba(30, 144, 255, 0.18)"
 }
 
 /* subtle bottom shadow for depth */
@@ -155,7 +155,7 @@ td.editable:hover {
 :root{
   --md-primary: #ffb405; /* amber 600 */
   --md-primary-variant: #FF8F00; /* amber 700 */
-  --md-secondary: #00BCD4; /* turquoise / cyan */
+  --md-secondary: #0098ac; /* turquoise / cyan */
   --md-background: #e0f7fa; /* very light turquoise */
   --md-surface: #ffffff;
   --md-error: #b00020;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -22,6 +22,8 @@ import LinksSiteAsp from './components/asplinks';
 import HappyNewYear2026 from './components/HappyNewYear2026';
 import LinksSiteAdd from './components/addlink';
 import Toast from './components/Toast';
+import Healthcheck from './components/Healthcheck';
+import Clipboard from './components/clipboard';
 
 import './styles/App.css';
 import { ListItem } from '@mui/material';
@@ -31,29 +33,36 @@ const App: React.FC = () => {
 
     const toggleMenu = () => setMenuOpen(open => !open);
 
+    const AppHeader: React.FC<{ onToggleMenu: () => void }> = ({ onToggleMenu }) => {
+        const location = useLocation();
+        if (location.pathname === '/clipboard') return null;
+        return (
+            <AppBar position="static" color="transparent" >
+                <Toolbar>
+                    <IconButton
+                        edge="start"
+                        color="inherit"
+                        aria-label="menu"
+                        onClick={onToggleMenu}
+                        disableRipple
+                        sx={{ mr: 2, width: 32, height: 32, borderRadius: '6px', bgcolor: 'transparent', p: 0.5 }}
+                    >
+                        <Menu size={20} />
+                    </IconButton>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Homepage
+                    </Typography>
+                    <Button color="inherit" component={Link} to="/">Home</Button>
+                    <Button color="inherit" component={Link} to="/Weblinks">Links</Button>
+                </Toolbar>
+            </AppBar>
+        );
+    };
+
     return (
         <Router>
             <div className="App">
-                {/* Material AppBar */}
-                <AppBar position="static" color="primary">
-                    <Toolbar>
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            onClick={toggleMenu}
-                            disableRipple
-                            sx={{ mr: 2, width: 32, height: 32, borderRadius: '6px', bgcolor: 'transparent', p: 0.5 }}
-                        >
-                            <Menu size={20} />
-                        </IconButton>
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            Homepage
-                        </Typography>
-                        <Button color="inherit" component={Link} to="/">Home</Button>
-                        <Button color="inherit" component={Link} to="/Weblinks">Links</Button>
-                    </Toolbar>
-                </AppBar>
+                <AppHeader onToggleMenu={toggleMenu} />
 
                 <Drawer anchor="left" open={menuOpen} onClose={() => setMenuOpen(false)}>
                     <Box sx={{ width: 260 }} role="presentation" onClick={() => setMenuOpen(false)} onKeyDown={() => setMenuOpen(false)}>
@@ -102,6 +111,8 @@ const App: React.FC = () => {
                             <Route path="/toast" element={<Toast message="This is a toast notification! 403 (forbidden)" onClose={
 () => console.log('Toast closed')
                             }/>} />
+                            <Route path="/healthcheck" element={<Healthcheck />} />
+                            <Route path="/clipboard" element={<Clipboard />} />
                         </Routes>
                     </main>
                 </div>
