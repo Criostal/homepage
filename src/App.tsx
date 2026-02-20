@@ -19,6 +19,7 @@ import LinkManager from './components/linkmanager';
 import Horses from './components/horses';
 import Keyboard from './components/keyboard';
 import LinksSiteAsp from './components/asplinks';
+import Home from './components/Home';
 import HappyNewYear2026 from './components/HappyNewYear2026';
 import LinksSiteAdd from './components/addlink';
 import Toast from './components/Toast';
@@ -53,7 +54,8 @@ const App: React.FC = () => {
                         Homepage
                     </Typography>
                     <Button color="inherit" component={Link} to="/">Home</Button>
-                    <Button color="inherit" component={Link} to="/Weblinks">Links</Button>
+                    <Button color="inherit" component={Link} to="/asplinks">web</Button>
+                    <Button color="inherit" component={Link} to="/Weblinks">Nx</Button>
                 </Toolbar>
             </AppBar>
         );
@@ -67,7 +69,7 @@ const App: React.FC = () => {
                 <Drawer anchor="left" open={menuOpen} onClose={() => setMenuOpen(false)}>
                     <Box sx={{ width: 260 }} role="presentation" onClick={() => setMenuOpen(false)} onKeyDown={() => setMenuOpen(false)}>
                         <List>
-                            <ListItemButton component={Link} to="/Weblinks">
+                            <ListItemButton component={Link} to="/">
                                 <ListItemText primary="Home" />
                             </ListItemButton>
                             <ListItemButton component={Link} to="/cameras">
@@ -98,7 +100,7 @@ const App: React.FC = () => {
                 <div className="container">
                     <main className="content">
                         <Routes>
-                            <Route path="/" element={<LinksSiteAsp />} />
+                            <Route path="/" element={<Home />} />
                             <Route path="/cameras" element={<CamerasPage />} />
                             <Route path="/Weblinks" element={<NxLinks />} />
                             <Route path="/edit" element={<EditableGrid />} />
