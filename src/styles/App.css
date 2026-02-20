@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: var(--md-background);
+    color: var(--md-on-surface);
 }
 
 h1 {
@@ -59,7 +60,7 @@ td.editable:hover {
 
 .sidebar {
     width: 200px;
-    background-color: #f4f4f4;
+    background-color: var(--md-surface);
     padding: 10px;
     border-right: 1px solid #ddd;
 }
@@ -85,6 +86,7 @@ td.editable:hover {
 .content {
     flex: 1;
     padding: 10px;
+    background: transparent;
 }
 
 .top-menu {
@@ -141,7 +143,7 @@ td.editable:hover {
 
 .top-menu nav a {
     display: block;
-    color: #201700;
+    color: var(--md-on-surface);
     padding: 16px 24px;
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
@@ -166,5 +168,21 @@ td.editable:hover {
   --md-radius: 8px;
   --md-spacing: 16px;
   font-size: 16px;
+}
+
+/* Dark theme overrides when body has class 'dark' */
+body.dark {
+    --md-primary: #ffb405;
+    --md-primary-variant: #FF8F00;
+    --md-secondary: #0098ac;
+    --md-background: #121212;
+    --md-surface: #1e1e1e;
+    --md-error: #cf6679;
+    --md-on-primary: #000000;
+    --md-on-surface: #e6e6e6;
+    --md-shadow-1: 0 1px 3px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.5);
+    --md-shadow-2: 0 4px 6px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.5);
+    --md-radius: 8px;
+    --md-spacing: 16px;
 }
 

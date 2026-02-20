@@ -58,6 +58,9 @@ const weblinks: Weblink[] = [
     { label: "Grafana", url:"http://ds-vm-ngtrace01:3000/", category: "Dokumentation"},
     { label: "Postman", url:"https://www.postman.com/", category: "Entwicklung" },
     { label: "Confluence Machines", url: "https://confluence.nexus-ag.de/x/xgGjAg", category: "Dokumentation" },
+    { label: "Healthchecks", url: "http://entw-ds-wks01.nexus.int/", category: "Api"},
+    { label: "Confluence kis Mcp Wrapper Plugin", url: "https://confluence.nexus-ag.de/x/EwPpE", category: "Dokumentation" },
+    { label: "Azure NG ffm", url: "https://fm-vm-devops.nexus.int/NG", category: "Entwicklung" },
     // Weitere Links...
 ];
 
@@ -91,6 +94,21 @@ const categoryBackgrounds: Record<string, string> = {
     "Sprint": "linear-gradient(135deg, #caf9ff50 60%, #00BCD4 100%)"
 };
 
+// Dunkle Farbverläufe für Dark Mode
+const categoryBackgroundsDark: Record<string, string> = {
+    "Entwicklung": "linear-gradient(135deg, #0f2a35 0%, #071018 100%)",
+    "Wissen": "linear-gradient(135deg, #0f2418 0%, #071513 100%)",
+    "Projektmanagement": "linear-gradient(135deg, #2b1f0e 0%, #1a1206 100%)",
+    "HR": "linear-gradient(135deg, #2a1326 0%, #120814 100%)",
+    "Zeiterfassung": "linear-gradient(135deg, #081a1d 0%, #041012 100%)",
+    "Datenbank": "linear-gradient(135deg, #150f0b 0%, #080706 100%)",
+    "Support": "linear-gradient(135deg, #1a1a14 0%, #0b0b08 100%)",
+    "Amts": "linear-gradient(135deg, #0b1a1e 0%, #041216 100%)",
+    "Api": "linear-gradient(135deg, #08131a 0%, #041014 100%)",
+    "Dokumentation": "linear-gradient(135deg, #08121a 0%, #041014 100%)",
+    "Sprint": "linear-gradient(135deg, #07161a 0%, #021116 100%)"
+};
+
 const groupedLinks = weblinks.reduce<Record<string, Weblink[]>>((acc, link) => {
     if (!acc[link.category]) acc[link.category] = [];
     acc[link.category].push(link);
@@ -98,6 +116,11 @@ const groupedLinks = weblinks.reduce<Record<string, Weblink[]>>((acc, link) => {
 }, {});
 
 const Weblinks: React.FC = () => {
+    const isDark = (typeof document !== 'undefined') && (
+        document.body.classList.contains('dark') ||
+        (typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('theme') === 'dark') ||
+        (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    );
     // Links im neuen Tab öffnen (ohne window.open, sondern mit <a target="_blank">)
     // Kategorien sortieren: "Sprint" zuerst, dann alphabetisch
     const sortedCategories = Object.keys(groupedLinks).sort((a, b) => {
@@ -123,8 +146,8 @@ const Weblinks: React.FC = () => {
                             alignItems: "flex-start",
                             gap: 14,
                             borderRadius: 18,
-                            boxShadow: "0 4px 24px 0 rgba(0,0,0,0.07)",
-                            background: categoryBackgrounds[category] || "#f5f5f5",
+                            boxShadow: isDark ? "0 6px 28px 0 rgba(0,0,0,0.6)" : "0 4px 24px 0 rgba(236, 226, 226, 0.07)",
+                            background: isDark ? (categoryBackgroundsDark[category] || "#0f1418") : (categoryBackgrounds[category] || "#f5f5f5"),
                             padding: "12px 9px"
                         }}
                     >
@@ -136,8 +159,8 @@ const Weblinks: React.FC = () => {
                                 display: "flex",
                                 alignItems: "center",
                                 gap: 8,
-                                color: "#111", // <-- Text jetzt schwarz
-                                textShadow: "0 2px 8px rgba(0,0,0,0.07)"
+                                color: isDark ? '#e6eef6' : '#111',
+                                textShadow: isDark ? '0 2px 8px rgba(0,0,0,0.5)' : '0 2px 8px rgba(0,0,0,0.07)'
                             }}
                         >
                             {category}
@@ -147,68 +170,74 @@ const Weblinks: React.FC = () => {
                         </h3>
                         <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>
                             <div className="button-container" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                                {col1.map(link => (
-                                    <a
-                                        key={link.url}
-                                        href={link.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        style={{
-                                            background: "rgba(255,255,255,0.18)",
-                                            border: "1.5px solid rgba(30, 144, 255, 0.18)",
-                                            borderRadius: 8,
-                                            color: "#1976d2",
-                                            padding: "10px 20px",
-                                            width: 220,
-                                            fontSize: 16,
-                                            cursor: "pointer",
-                                            marginBottom: 0,
-                                            boxShadow: `0 4px 24px 0 ${categoryColors[category] || "#607d8b"}33, 0 2px 8px 0 rgba(0,0,0,0.10)`,
-                                            textDecoration: "none",
-                                            display: "inline-block",
-                                            textAlign: "center",
-                                            transition: "box-shadow 0.2s, filter 0.2s, background 0.2s, border 0.2s",
-                                            backdropFilter: "blur(8px)",
-                                            WebkitBackdropFilter: "blur(8px)"
-                                        }}
-                                        onMouseOver={e => (e.currentTarget.style.filter = "brightness(1.08) drop-shadow(0 0 8px #fff)")}
-                                        onMouseOut={e => (e.currentTarget.style.filter = "")}
-                                    >
-                                        {link.label}
-                                    </a>
-                                ))}
+                                {col1.map(link => {
+                                    const linkStyle: React.CSSProperties = {
+                                        background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.18)',
+                                        border: isDark ? '1px solid rgba(255,255,255,0.03)' : '1.5px solid rgba(30, 144, 255, 0.18)',
+                                        borderRadius: 8,
+                                        color: isDark ? '#8fd3ff' : '#1976d2',
+                                        padding: '10px 20px',
+                                        width: 220,
+                                        fontSize: 16,
+                                        cursor: 'pointer',
+                                        marginBottom: 0,
+                                        boxShadow: isDark ? `0 6px 24px 0 rgba(0,0,0,0.6)` : `0 4px 24px 0 ${categoryColors[category] || '#607d8b'}33, 0 2px 8px 0 rgba(0,0,0,0.10)`,
+                                        textDecoration: 'none',
+                                        display: 'inline-block',
+                                        textAlign: 'center',
+                                        transition: 'box-shadow 0.2s, filter 0.2s, background 0.2s, border 0.2s',
+                                        backdropFilter: 'blur(8px)',
+                                        WebkitBackdropFilter: 'blur(8px)'
+                                    };
+                                    return (
+                                        <a
+                                            key={link.url}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style={linkStyle}
+                                            onMouseOver={e => (e.currentTarget.style.filter = isDark ? 'brightness(1.04)' : 'brightness(1.08) drop-shadow(0 0 8px #fff)')}
+                                            onMouseOut={e => (e.currentTarget.style.filter = '')}
+                                        >
+                                            {link.label}
+                                        </a>
+                                    );
+                                })}
                             </div>
                             <div className="button-container" style={{ display: "inline", flexDirection: "column", gap: 8 }}>
-                                {col2.map(link => (
-                                    <a
-                                        key={link.url}
-                                        href={link.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        style={{
-                                            background: "rgba(255,255,255,0.18)",
-                                            border: "1.5px solid rgba(30, 144, 255, 0.18)",
-                                            borderRadius: 8,
-                                            color: "#1976d2",
-                                            padding: "10px 20px",
-                                            width: 220,
-                                            fontSize: 16,
-                                            cursor: "pointer",
-                                            marginBottom: 0,
-                                            boxShadow: `0 4px 24px 0 ${categoryColors[category] || "#607d8b"}33, 0 2px 8px 0 rgba(0,0,0,0.10)`,
-                                            textDecoration: "none",
-                                            display: "inline-block",
-                                            textAlign: "center",
-                                            transition: "box-shadow 0.2s, filter 0.2s, background 0.2s, border 0.2s",
-                                            backdropFilter: "blur(8px)",
-                                            WebkitBackdropFilter: "blur(8px)"
-                                        }}
-                                        onMouseOver={e => (e.currentTarget.style.filter = "brightness(1.08) drop-shadow(0 0 8px #fff)")}
-                                        onMouseOut={e => (e.currentTarget.style.filter = "")}
-                                    >
-                                        {link.label}
-                                    </a>
-                                ))}
+                                {col2.map(link => {
+                                    const linkStyle: React.CSSProperties = {
+                                        background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.18)',
+                                        border: isDark ? '1px solid rgba(255,255,255,0.03)' : '1.5px solid rgba(30, 144, 255, 0.18)',
+                                        borderRadius: 8,
+                                        color: isDark ? '#8fd3ff' : '#1976d2',
+                                        padding: '10px 20px',
+                                        width: 220,
+                                        fontSize: 16,
+                                        cursor: 'pointer',
+                                        marginBottom: 0,
+                                        boxShadow: isDark ? `0 6px 24px 0 rgba(0,0,0,0.6)` : `0 4px 24px 0 ${categoryColors[category] || '#607d8b'}33, 0 2px 8px 0 rgba(0,0,0,0.10)`,
+                                        textDecoration: 'none',
+                                        display: 'inline-block',
+                                        textAlign: 'center',
+                                        transition: 'box-shadow 0.2s, filter 0.2s, background 0.2s, border 0.2s',
+                                        backdropFilter: 'blur(8px)',
+                                        WebkitBackdropFilter: 'blur(8px)'
+                                    };
+                                    return (
+                                        <a
+                                            key={link.url}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style={linkStyle}
+                                            onMouseOver={e => (e.currentTarget.style.filter = isDark ? 'brightness(1.04)' : 'brightness(1.08) drop-shadow(0 0 8px #fff)')}
+                                            onMouseOut={e => (e.currentTarget.style.filter = '')}
+                                        >
+                                            {link.label}
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
