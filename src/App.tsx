@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
+import Switch from '@mui/material/Switch';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -30,10 +31,22 @@ import { ListItem } from '@mui/material';
 
 const App: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [theme, setTheme] = useState<'light'|'dark'>(() => (typeof window !== 'undefined' && window.localStorage.getItem('theme') === 'dark') ? 'dark' : 'light');
+
+    useEffect(() => {
+        if (typeof document !== 'undefined') {
+            document.body.classList.toggle('dark', theme === 'dark');
+        }
+        try {
+            if (typeof window !== 'undefined') window.localStorage.setItem('theme', theme);
+        } catch (e) {
+            // ignore
+        }
+    }, [theme]);
 
     const toggleMenu = () => setMenuOpen(open => !open);
 
-    const AppHeader: React.FC<{ onToggleMenu: () => void }> = ({ onToggleMenu }) => {
+    const AppHeader: React.FC<{ onToggleMenu: () => void; theme: 'light'|'dark'; onToggleTheme: () => void }> = ({ onToggleMenu, theme, onToggleTheme }) => {
         const location = useLocation();
         if (location.pathname === '/clipboard') return null;
         return (
@@ -52,6 +65,13 @@ const App: React.FC = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Homepage
                     </Typography>
+                    <Switch
+                        checked={theme === 'dark'}
+                        onChange={onToggleTheme}
+                        color="default"
+                        inputProps={{ 'aria-label': 'theme switch' }}
+                        sx={{ mr: 1 }}
+                    />
                     <Button color="inherit" component={Link} to="/">Home</Button>
                     <Button color="inherit" component={Link} to="/Weblinks">Links</Button>
                 </Toolbar>
@@ -62,7 +82,7 @@ const App: React.FC = () => {
     return (
         <Router>
             <div className="App">
-                <AppHeader onToggleMenu={toggleMenu} />
+                <AppHeader onToggleMenu={toggleMenu} theme={theme} onToggleTheme={() => setTheme(t => t === 'dark' ? 'light' : 'dark')} />
 
                 <Drawer anchor="left" open={menuOpen} onClose={() => setMenuOpen(false)}>
                     <Box sx={{ width: 260 }} role="presentation" onClick={() => setMenuOpen(false)} onKeyDown={() => setMenuOpen(false)}>
