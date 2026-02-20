@@ -1,0 +1,36 @@
+/* Dark theme overrides for Weblinks; applied when `body` has class `dark` or `.weblinks-root` has `.dark` */
+body.dark, .weblinks-root.dark {
+    background: linear-gradient(135deg, #07101a 0%, #0e1720 100%);
+    color: #e6eef6;
+}
+
+body.dark h3, .weblinks-root.dark h3 {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+body.dark p, .weblinks-root.dark p {
+    color: #cfe6fa;
+}
+
+body.dark .button-container button, .weblinks-root.dark .button-container button {
+    background-image: linear-gradient(120deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    background-color: #16242b;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.5);
+    color: #e6eef6;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+body.dark .button-container button::after, .weblinks-root.dark .button-container button::after {
+    background: linear-gradient(120deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+}
+
+body.dark .button-container button:hover, .weblinks-root.dark .button-container button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.65);
+    filter: brightness(1.04);
+}
+
+/* ensure links and small text remain readable */
+body.dark a, .weblinks-root.dark a {
+    color: #8fd3ff;
+}

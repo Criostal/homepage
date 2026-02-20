@@ -1,0 +1,25 @@
+/* Dark theme overrides applied when `body` has class `dark` */
+.dark .home-page {
+  --home-bg: #0b1220;
+  --home-surface: #0f1724;
+  --home-muted: #98a0b3;
+  --home-text: #e6eef8;
+  --home-accent: #3b82f6;
+  background-color: var(--home-bg);
+  color: var(--home-text);
+}
+
+.dark .home-grid-item {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  color: inherit;
+}
+
+.dark .home-grid-item .MuiTypography-body2 {
+  color: rgba(230,238,248,0.9);
+}
+
+.dark .home-grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+}

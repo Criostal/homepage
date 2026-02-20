@@ -2,7 +2,9 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import GridItem from './GridItem';
-import MyGridItem from './GridItem';
+import '../styles/home.css';
+import HouseIcon from '@mui/icons-material/House';
+import { Icon } from '@mui/material';
 
 const Home: React.FC = () => {
     const items = [
@@ -17,7 +19,9 @@ const Home: React.FC = () => {
     }
 
     return (
-        <Box sx={{ p: 3, border: '1px solid #ccc', borderRadius: 2, backgroundColor: '#f9f9f9' }}>
+        <Box className="home-page" sx={{ p: 3 }}>
+
+            <Icon component={HouseIcon} sx={{ fontSize: 64, mb: 2 }} />
 
             <GridItem title="Home assistant" subtitle="Open common links" 
                 onClick={() => OpenLink('http://homeassistant.local:8123/') } />

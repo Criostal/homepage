@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/Weblinks.css";
+import "../styles/Weblinks-dark.css";
+import { Typography } from "@mui/material";
 
 // Icon-Auswahl pro Kategorie
 const categoryIcons: Record<string, string> = {
@@ -116,10 +118,9 @@ const groupedLinks = weblinks.reduce<Record<string, Weblink[]>>((acc, link) => {
 }, {});
 
 const Weblinks: React.FC = () => {
+
     const isDark = (typeof document !== 'undefined') && (
-        document.body.classList.contains('dark') ||
-        (typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('theme') === 'dark') ||
-        (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.body.classList.contains('dark') 
     );
     // Links im neuen Tab öffnen (ohne window.open, sondern mit <a target="_blank">)
     // Kategorien sortieren: "Sprint" zuerst, dann alphabetisch
@@ -131,6 +132,7 @@ const Weblinks: React.FC = () => {
 
     return (
         <div>
+            <Typography>{isDark ? 'darkmode' : 'lightmode'}</Typography>
             {sortedCategories.map(category => {
                 const links = groupedLinks[category];
                 const half = Math.ceil(links.length / 2);

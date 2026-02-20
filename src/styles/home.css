@@ -1,0 +1,42 @@
+/* Light theme for Home page */
+:root {
+  --home-bg: #ffffff;
+  --home-surface: #f8fafc;
+  --home-muted: #6b7280;
+  --home-text: #0f1724;
+  --home-accent: #2563eb;
+}
+
+.home-page {
+  background-color: var(--home-bg);
+  color: var(--home-text);
+  min-height: 100%;
+  padding-bottom: 32px;
+}
+
+.home-page .MuiTypography-root {
+  color: inherit;
+}
+
+.home-grid-item {
+  background: linear-gradient(180deg, rgba(15,23,36,0.02), rgba(15,23,36,0.01));
+  border: 1px solid rgba(15,23,36,0.06);
+  color: inherit;
+}
+
+.home-grid-item .MuiCardContent-root {
+  padding: 16px 12px;
+}
+
+.home-grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(15,23,36,0.08);
+}
+
+.home-grid-item .MuiTypography-h6 {
+  color: var(--home-text);
+}
+
+.home-grid-item .MuiTypography-body2 {
+  color: var(--home-muted);
+}

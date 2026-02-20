@@ -10,16 +10,16 @@ interface GridItemProps {
   onClick?: () => void;
 }
 
-const MyGridItem: React.FC<GridItemProps> = ({ title, subtitle, onClick }) => {
+const GridItem: React.FC<GridItemProps> = ({ title, subtitle, onClick }) => {
   return (
-    <Card onClick={onClick} sx={{ cursor: onClick ? 'pointer' : 'default', height: '100%' }}>
+    <Card onClick={onClick} className="home-grid-item" sx={{ cursor: onClick ? 'pointer' : 'default', height: '100%' }}>
       <CardContent>
         <Box>
           <Typography variant="h6" component="div">
             {title}
           </Typography>
           {subtitle && (
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2">
               {subtitle}
             </Typography>
           )}
@@ -29,4 +29,4 @@ const MyGridItem: React.FC<GridItemProps> = ({ title, subtitle, onClick }) => {
   );
 };
 
-export default MyGridItem;
+export default GridItem;

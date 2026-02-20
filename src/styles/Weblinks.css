@@ -2,7 +2,7 @@
 
 body, .weblinks-root {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #e3f0ff 0%, #fafcff 100%);
+    background: linear-gradient(135deg, #f6fbff 0%, #ffffff 100%);
     min-height: 100vh;
 }
 
@@ -15,7 +15,7 @@ body, .weblinks-root {
 
 button {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px 0 rgba(245, 243, 243, 0.911), 0 1px 3px 0 rgba(230, 178, 178, 0.911);
     border: none;
     border-radius: 10px;
     padding: 12px 24px;
@@ -26,7 +26,7 @@ button {
     position: relative;
     overflow: hidden;
     transition: transform 0.15s, box-shadow 0.15s;
-    background-image: linear-gradient(120deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.10) 100%);
+    background-image: linear-gradient(120deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.15) 100%);
 }
 
 .button-container button::after {
@@ -35,63 +35,27 @@ button {
     position: absolute;
     left: 0; top: 0; right: 0; bottom: 0;
     border-radius: 10px;
-    background: linear-gradient(120deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.10) 100%);
+    background: linear-gradient(120deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.12) 100%);
     pointer-events: none;
     z-index: 1;
 }
 
 .button-container button:hover {
     transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 24px 0 rgba(0,0,0,0.13), 0 2px 8px 0 rgba(0,0,0,0.10);
-    filter: brightness(1.08);
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,0.09), 0 2px 6px 0 rgba(0,0,0,0.06);
+    filter: brightness(1.04);
 }
 
 h3 {
     font-weight: 700;
     letter-spacing: 1px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
 p {
-    font-size: 1.2em;
-    color: #333;
-    margin-bottom: 32px;
-    margin-top: 24px;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 28px;
+    margin-top: 20px;
 }
-
-/* Dark theme overrides when body has class 'dark' or .weblinks-root has .dark */
-body.dark, .weblinks-root.dark {
-    background: linear-gradient(135deg, #07101a 0%, #0e1720 100%);
-    color: #e6eef6;
-}
-
-body.dark h3, .weblinks-root.dark h3 {
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}
-
-body.dark p, .weblinks-root.dark p {
-    color: #cfe6fa;
-}
-
-body.dark .button-container button, .weblinks-root.dark .button-container button {
-    background-image: linear-gradient(120deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-    background-color: #16242b;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.5);
-    color: #e6eef6;
-    border: 1px solid rgba(255,255,255,0.03);
-}
-
-body.dark .button-container button::after, .weblinks-root.dark .button-container button::after {
-    background: linear-gradient(120deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
-}
-
-body.dark .button-container button:hover, .weblinks-root.dark .button-container button:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.65);
-    filter: brightness(1.04);
-}
-
-/* ensure links and small text remain readable */
-body.dark a, .weblinks-root.dark a {
-    color: #8fd3ff;
-}
+ 

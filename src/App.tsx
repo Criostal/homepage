@@ -28,6 +28,8 @@ import Healthcheck from './components/Healthcheck';
 import Clipboard from './components/clipboard';
 
 import './styles/App.css';
+import './styles/home.css';
+import './styles/home-dark.css';
 import { ListItem } from '@mui/material';
 
 const App: React.FC = () => {
