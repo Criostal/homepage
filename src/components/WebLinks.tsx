@@ -63,6 +63,7 @@ const weblinks: Weblink[] = [
     { label: "Healthchecks", url: "http://entw-ds-wks01.nexus.int/", category: "Api"},
     { label: "Confluence kis Mcp Wrapper Plugin", url: "https://confluence.nexus-ag.de/x/EwPpE", category: "Dokumentation" },
     { label: "Azure NG ffm", url: "https://fm-vm-devops.nexus.int/NG", category: "Entwicklung" },
+    { label: "Confluence Care", url:"https://confluence.nexus-ag.de/spaces/MED/pages/85879254/How-Tos+-+Care", category: "Dokumentation" },
     // Weitere Links...
 ];
 

@@ -56,6 +56,9 @@ const Home: React.FC = () => {
             <GridItem title="OpenDtu" subtitle="OpenDtu"
                 onClick={() => OpenLink('http://192.168.178.79/') } />
 
+            <GridItem title="Open WebUI" subtitle="Open WebUI"
+                onClick={() => OpenLink('http://192.168.178.108:8080') } />
+
             <Mermaid chart={chart} />
 
         </Box>
