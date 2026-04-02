@@ -34,3 +34,15 @@ body.dark .button-container button:hover, .weblinks-root.dark .button-container 
 body.dark a, .weblinks-root.dark a {
     color: #8fd3ff;
 }
+
+/* Dark-mode variant for the spinning light */
+body.dark .spinning-light, .weblinks-root.dark .spinning-light {
+    top: -80px;
+    right: -100px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle at 30% 30%, rgba(144,209,255,0.9), rgba(80,150,255,0.6) 30%, rgba(30,90,255,0.18) 60%, transparent 72%);
+    filter: blur(34px) saturate(1.05);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+}

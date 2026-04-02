@@ -61,9 +61,10 @@ const weblinks: Weblink[] = [
     { label: "Postman", url:"https://www.postman.com/", category: "Entwicklung" },
     { label: "Confluence Machines", url: "https://confluence.nexus-ag.de/x/xgGjAg", category: "Dokumentation" },
     { label: "Healthchecks", url: "http://entw-ds-wks01.nexus.int/", category: "Api"},
-    { label: "Confluence kis Mcp Wrapper Plugin", url: "https://confluence.nexus-ag.de/x/EwPpE", category: "Dokumentation" },
+    { label: "Confluence kis wrapper plugin", url: "https://confluence.nexus-ag.de/x/EwPpE", category: "Dokumentation" },
     { label: "Azure NG ffm", url: "https://fm-vm-devops.nexus.int/NG", category: "Entwicklung" },
     { label: "Confluence Care", url:"https://confluence.nexus-ag.de/spaces/MED/pages/85879254/How-Tos+-+Care", category: "Dokumentation" },
+    { label: "Sonarqube", url: "https://ds-vm-sonqube01.nexus.int/sonarqube/projects", category: "Entwicklung" },
     // Weitere Links...
 ];
 
@@ -132,8 +133,10 @@ const Weblinks: React.FC = () => {
     });
 
     return (
-        <div>
-            <Typography>{isDark ? 'darkmode' : 'lightmode'}</Typography>
+        <div className="weblinks-root">
+            <div className="spinning-light" aria-hidden="true" />
+            <div className="weblinks-content">
+               
             {sortedCategories.map(category => {
                 const links = groupedLinks[category];
                 const half = Math.ceil(links.length / 2);
@@ -246,6 +249,7 @@ const Weblinks: React.FC = () => {
                     </div>
                 );
             })}
+            </div>
         </div>
     );
 };
